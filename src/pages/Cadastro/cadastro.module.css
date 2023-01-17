@@ -1,7 +1,7 @@
 .cadastro{
     margin-top: 0;
     background: white;
-    height: 100vw;
+    height: 100vh;
     width: 100%;
 }
 
@@ -15,4 +15,8 @@
     display: flex;
     justify-content: space-around;
     margin-top: 52px;
+}
+
+.container img {
+    width: 550px;
 }
