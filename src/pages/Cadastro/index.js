@@ -21,7 +21,7 @@ const Cadastro = () => {
                     <CampoTexto placeholder="Insira sua senha:"/>
 
                     <div className={styles.botoes}>
-                        <Botao primario={true}>Cadastre-se</Botao>
+                        <Botao primario={true}>Cadastrar</Botao>
 
                         <Link to="/">
                             <Botao primario={false}>Voltar à tela anterior</Botao>
