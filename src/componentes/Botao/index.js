@@ -1,4 +1,4 @@
-import styles from './botao.module.css';
+// import styles from './botao.module.css';
 
 const Botao = ({children, pesoFonte, primario}) => {
     let ehPrimario;

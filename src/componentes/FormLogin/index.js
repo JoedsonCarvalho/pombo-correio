@@ -1,8 +1,9 @@
 import styles from './formulario.module.css';
 import CampoTexto from '../CampoTexto';
 import Botao from '../Botao';
+import { Link } from 'react-router-dom';
 
-const Form = () => {
+const FormLogin = () => {
     return (
         <div className={styles.form}>
             <CampoTexto placeholder="Insira seu email:" required={false} />
@@ -12,13 +13,15 @@ const Form = () => {
                 <Botao pesoFonte='bold' primario={true}>
                     Entrar
                 </Botao>
-                <Botao primario={false}>
-                    Cadastre-se
-                </Botao>
+                <Link to="/cadastro">
+                    <Botao primario={false}>
+                        Cadastre-se
+                    </Botao>
+                </Link>
             </div>
             
         </div>
     )
 }
 
-export default Form;
+export default FormLogin;
