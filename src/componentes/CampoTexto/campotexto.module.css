@@ -1,0 +1,7 @@
+.campotexto{
+    margin: 15px 10px;
+}
+
+.campotexto input::placeholder{
+    color: #a35a00 !important;
+}
