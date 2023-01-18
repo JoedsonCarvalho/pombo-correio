@@ -1,6 +1,6 @@
 // import styles from './botao.module.css';
 
-const Botao = ({children, pesoFonte, primario}) => {
+const Botao = ({children, pesoFonte, primario, onClick}) => {
     let ehPrimario;
     if (primario){
         ehPrimario = 'btn-light';
@@ -9,8 +9,10 @@ const Botao = ({children, pesoFonte, primario}) => {
     }
 
     return(
-        <button className={`btn ${ehPrimario}`}
-        style={{fontWeight: pesoFonte, marginLeft: '20px'}}>{children}</button>
+        <button 
+        className={`btn ${ehPrimario}`}
+        style={{fontWeight: pesoFonte, marginLeft: '20px'}}
+        >{children}</button>
     )
 }
 
