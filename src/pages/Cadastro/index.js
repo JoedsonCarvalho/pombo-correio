@@ -32,6 +32,7 @@ const Cadastro = () => {
         formData.append('apelido', apelido);
         formData.append('senha', senha);
 
+
         let requestOptions = {
             method: 'POST',
             body: formData
@@ -43,6 +44,7 @@ const Cadastro = () => {
             console.log(data);
         })
         .catch(err => console.log(err))
+
 
     }
 
