@@ -25,25 +25,25 @@ const Cadastro = () => {
         console.log(senha);
         console.log(segundasenha);
 
-        // let formData = new FormData();
-        // formData.append('nome', nome);
-        // formData.append('sobrenome', sobrenome);
-        // formData.append('email', email);
-        // formData.append('apelido', apelido);
-        // formData.append('senha', senha);
+        let formData = new FormData();
+        formData.append('nome', nome);
+        formData.append('sobrenome', sobrenome);
+        formData.append('email', email);
+        formData.append('apelido', apelido);
+        formData.append('senha', senha);
 
 
-        // let requestOptions = {
-        //     method: 'POST',
-        //     body: formData
-        // }
+        let requestOptions = {
+            method: 'POST',
+            body: formData
+        }
 
-        // fetch('url_api_cadastrar', requestOptions)
-        // .then(result => result.json())
-        // .then(data => {
-        //     console.log(data);
-        // })
-        // .catch(err => console.log(err))
+        fetch('http://localhost:5226/pombocorreio/cadastro', requestOptions)
+        .then(result => result.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => console.log(err))
 
 
     }
