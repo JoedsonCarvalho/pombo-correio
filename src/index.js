@@ -16,6 +16,7 @@ root.render(
           <Route path="/cadastro" element={<Cadastro />}  ></Route>
           <Route path="/dashboard" element={<Dashboard />} ></Route>
       </Routes>
+      
     </BrowserRouter>
   </React.StrictMode>
 );
