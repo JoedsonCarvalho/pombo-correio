@@ -23,7 +23,7 @@ const Dashboard = () => {
         <div className={styles.dashboard}>
             <div className={styles.containerEsquerdo}>
                 <div>
-                    <Botao primario={true} pesoFonte="bold" >Criar novo lembrete</Botao>
+                    <Botao className={'btn btn-outline-light'} pesoFonte="500" >Criar novo lembrete</Botao>
                 </div>
                 <img src={logo} alt="logo do site"/>
             </div>

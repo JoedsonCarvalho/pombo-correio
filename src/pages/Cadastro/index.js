@@ -88,10 +88,10 @@ const Cadastro = () => {
                     />
 
                     <div className={styles.botoes}>
-                        <Botao primario={true} >Cadastrar</Botao>
+                        <Botao className={'btn btn-light'} >Cadastrar</Botao>
 
                         <Link to="/">
-                            <Botao primario={false}>Voltar à tela anterior</Botao>
+                            <Botao className={'btn btn-outline-light'}>Voltar à tela anterior</Botao>
                         </Link>
                     </div>
                 </FormCadastro>

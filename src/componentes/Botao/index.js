@@ -1,18 +1,8 @@
 // import styles from './botao.module.css';
-
-const Botao = ({children, pesoFonte, primario, onClick}) => {
-    let ehPrimario;
-    if (primario){
-        ehPrimario = 'btn-light';
-    }else{
-        ehPrimario = 'btn-outline-light';
-    }
-
+const Botao = ({children, pesoFonte, className}) => {
     return(
-
         <button  type='submit'
-
-        className={`btn ${ehPrimario}`}
+        className={className}
         style={{fontWeight: pesoFonte, marginLeft: '20px', height: 'auto' }}
         >{children}</button>
     )

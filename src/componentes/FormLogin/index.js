@@ -47,11 +47,11 @@ const FormLogin = ({submit}) => {
             />
             
             <div className={styles.botoes}>
-                <Botao pesoFonte='bold' primario={true}>
+                <Botao pesoFonte='bold' className={'btn btn-light'}>
                     Entrar
                 </Botao>
                 <Link to="/cadastro">
-                    <Botao primario={false}>
+                    <Botao className={'btn btn-outline-light'}>
                         Cadastre-se
                     </Botao>
                 </Link>
