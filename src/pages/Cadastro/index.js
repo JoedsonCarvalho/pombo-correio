@@ -5,7 +5,7 @@ import CampoTexto from '../../componentes/CampoTexto';
 import Botao from '../../componentes/Botao';
 import { Link } from 'react-router-dom';
 import logoSecundaria from './assets/pombo_correio.jpeg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Cadastro = () => {
     const [nome, setNome] = useState('');
@@ -44,7 +44,6 @@ const Cadastro = () => {
             console.log(data);
         })
         .catch(err => console.log(err))
-
 
     }
 
