@@ -10,10 +10,10 @@ const Botao = ({children, pesoFonte, primario, onClick}) => {
 
     return(
 
-        <button type='submit'
+        <button  type='submit'
 
         className={`btn ${ehPrimario}`}
-        style={{fontWeight: pesoFonte, marginLeft: '20px'}}
+        style={{fontWeight: pesoFonte, marginLeft: '20px', height: 'auto' }}
         >{children}</button>
     )
 }
