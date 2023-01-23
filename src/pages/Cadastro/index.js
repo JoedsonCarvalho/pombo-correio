@@ -42,6 +42,7 @@ const Cadastro = () => {
         .then(result => result.json())
         .then(data => {
             console.log(data);
+            console.log(data.status);
         })
         .catch(err => console.log(err))
 

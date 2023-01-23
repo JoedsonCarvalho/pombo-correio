@@ -1,10 +1,20 @@
 .dashboard {
     background-color: white;
-    width: 100vw;
     height: 100vh;
 }
 
 .containerEsquerdo {
+    /* width: 100vw; */
     display: flex;
     float: right;
+}
+
+.cards{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    width: 65vw;
+    margin-left: 256px;
 }
