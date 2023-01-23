@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import Dashboard from './pages/Dashboard';
+import CriarLembrete from './pages/CriarLembrete';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
           <Route path="/" element={<Login />}  ></Route>
           <Route path="/cadastro" element={<Cadastro />}  ></Route>
           <Route path="/dashboard" element={<Dashboard />} ></Route>
+          <Route path="dashboard/criar-lembrete" element={<CriarLembrete />} ></Route>
       </Routes>
       
     </BrowserRouter>

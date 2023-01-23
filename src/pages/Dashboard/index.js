@@ -3,6 +3,7 @@ import styles from './dashboard.module.css';
 import logo from './assets/pombo_correio.jpeg';
 import { useEffect, useState } from 'react';
 import Card from '../../componentes/Card';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [lembretes, setLembretes] = useState([]);
@@ -19,12 +20,14 @@ const Dashboard = () => {
         })
         .catch(err => console.log(err))
     }, [])
-
+    // css="background-color: '#2d3869'"
     return (
         <div className={styles.dashboard}>
             <div className={styles.containerEsquerdo}>
                 <div>
-                    <Botao className={'btn btn-outline-light'} pesoFonte="500" >Criar novo lembrete</Botao>
+                    <Link to="criar-lembrete">
+                        <button className="btn botao" style={{background: '#2d3869', color: 'white'}}>Criar novo lembrete</button>
+                    </Link>
                 </div>
                 <img src={logo} alt="logo do site"/>
             </div>

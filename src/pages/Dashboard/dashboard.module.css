@@ -5,6 +5,7 @@
 
 .containerEsquerdo {
     /* width: 100vw; */
+    margin-top: 10px;
     display: flex;
     float: right;
 }
@@ -17,4 +18,8 @@
     /* flex-direction: column; */
     width: 65vw;
     margin-left: 256px;
+}
+
+.botao:hover{
+    color: red;
 }
