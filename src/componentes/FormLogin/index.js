@@ -2,7 +2,7 @@ import styles from './formulario.module.css';
 import CampoTexto from '../CampoTexto';
 import Botao from '../Botao';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
@@ -13,21 +13,21 @@ const FormLogin = ({submit}) => {
         console.log(email);
         console.log(senha);
 
-        // let formData = new FormData();
-        // formData.append('email', email);
-        // formData.append('senha', senha);
+        let formData = new FormData();
+        formData.append('email', email);
+        formData.append('senha', senha);
 
-        // let requestOptions = {
-        //     method: 'GET',
-        //     body: formData
-        // }
+        let requestOptions = {
+            method: 'POST',
+            body: formData
+        }
 
-        // fetch('url_login', requestOptions)
-        // .then(result => result.json())
-        // .then(data => {
-        //     console.log(data);
-        // })
-        // .catch(err => console.log(err))
+        fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
+        .then(result => result.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => console.log(err))
 
     }
 
@@ -47,11 +47,11 @@ const FormLogin = ({submit}) => {
             />
             
             <div className={styles.botoes}>
-                <Botao pesoFonte='bold' primario={true}>
+                <Botao pesoFonte='bold' className={'btn btn-light'}>
                     Entrar
                 </Botao>
                 <Link to="/cadastro">
-                    <Botao primario={false}>
+                    <Botao className={'btn btn-outline-light'}>
                         Cadastre-se
                     </Botao>
                 </Link>

@@ -5,7 +5,7 @@ import CampoTexto from '../../componentes/CampoTexto';
 import Botao from '../../componentes/Botao';
 import { Link } from 'react-router-dom';
 import logoSecundaria from './assets/pombo_correio.jpeg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Cadastro = () => {
     const [nome, setNome] = useState('');
@@ -45,7 +45,6 @@ const Cadastro = () => {
             console.log(data.status);
         })
         .catch(err => console.log(err))
-
 
     }
 
@@ -90,10 +89,10 @@ const Cadastro = () => {
                     />
 
                     <div className={styles.botoes}>
-                        <Botao primario={true} >Cadastrar</Botao>
+                        <Botao className={'btn btn-light'} >Cadastrar</Botao>
 
                         <Link to="/">
-                            <Botao primario={false}>Voltar à tela anterior</Botao>
+                            <Botao className={'btn btn-outline-light'}>Voltar à tela anterior</Botao>
                         </Link>
                     </div>
                 </FormCadastro>
