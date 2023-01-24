@@ -19,10 +19,10 @@ const CriarLembrete = () => {
     
     const whenSubmit = (e) => {
         e.preventDefault();
-        let idUsusario = localStorage.getItem("id")
+        let idUsuario = localStorage.getItem("id")
 
         let formData = new FormData();
-        formData.append("idUsuario", idUsario);
+        formData.append("idUsuario", idUsuario);
         formData.append("nome", nome);
         formData.append("descricao", descricao);
         formData.append("dt_lembrete", data);
@@ -40,7 +40,7 @@ const CriarLembrete = () => {
         })
         .catch(err => console.log(err))
     }
-    
+
     // const date = new Date()
     // let dataAtual = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;   
     return (
