@@ -50,7 +50,7 @@ const Cadastro = () => {
 
     return (
         <div className={styles.cadastro}>
-            <Titulo texto="Cadastre-se no Pombo correio"/>
+            <Titulo>Cadastre-se no Pombo correio</Titulo>
             
             <div className={styles.container}>
                 <FormCadastro onSubmit={HandleSubmit}>

@@ -23,3 +23,22 @@
 .botao:hover{
     color: red;
 }
+
+.btn_sair{
+    padding: 5px 10px;
+    border: 3px solid #2d3869;
+    width: max-content;
+    height: max-content;
+    margin-top: 10px;
+}
+.btn_sair img{
+    width:30px;
+    height:30px;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-around;
+    height: max-content;
+    align-items: top;
+}

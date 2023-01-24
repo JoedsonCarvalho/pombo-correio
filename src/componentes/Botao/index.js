@@ -1,6 +1,5 @@
 // import styles from './botao.module.css';
 const Botao = ({children, pesoFonte, className, css}) => {
-    console.log(css);
     return(
         <button  type='submit'
         className={className}

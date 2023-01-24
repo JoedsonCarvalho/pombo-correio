@@ -4,6 +4,7 @@ import logo from './assets/pombo_correio.jpeg';
 import { useEffect, useState } from 'react';
 import Card from '../../componentes/Card';
 import { Link } from 'react-router-dom';
+import iconeDesligar from './assets/desligar.jpg';
 
 const Dashboard = () => {
     const [lembretes, setLembretes] = useState([]);
@@ -20,17 +21,24 @@ const Dashboard = () => {
         })
         .catch(err => console.log(err))
     }, [])
-    // css="background-color: '#2d3869'"
+
     return (
         <div className={styles.dashboard}>
-            <div className={styles.containerEsquerdo}>
-                <div>
-                    <Link to="criar-lembrete">
-                        <button className="btn botao" style={{background: '#2d3869', color: 'white'}}>Criar novo lembrete</button>
-                    </Link>
+            <div className={styles.cabecalho}>
+                <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+                    <div className={styles.btn_sair}><img src={iconeDesligar} alt='icone de desligar'/>Sair da conta</div>
+                </Link>
+
+                <div className={styles.containerEsquerdo}>
+                    <div>
+                        <Link to="criar-lembrete">
+                            <button className="btn botao" style={{background: '#2d3869', color: 'white'}}>Criar novo lembrete</button>
+                        </Link>
+                    </div>
+                    <img src={logo} alt="logo do site"/>
                 </div>
-                <img src={logo} alt="logo do site"/>
             </div>
+            
 
             <section className={styles.cards} >
                     {lembretes.map(l => <Card key={l.id} nome={l.nome} descricao={l.descricao} />)}

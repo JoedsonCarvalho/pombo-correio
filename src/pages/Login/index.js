@@ -8,7 +8,7 @@ function Login() {
 
     return(
         <div className={styles.login}>
-            <Titulo texto="Bem vindo ao Pombo Correio!!" />
+            <Titulo >Bem vindo ao Pombo Correio!!</Titulo>
             
             <div className={styles.main}>
                 <FormLogin /> 

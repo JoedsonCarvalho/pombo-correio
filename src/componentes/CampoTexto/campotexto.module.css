@@ -5,3 +5,7 @@
 .campotexto input::placeholder{
     color: #a35a00 !important;
 }
+
+.campotexto{
+    width: 100%;
+}

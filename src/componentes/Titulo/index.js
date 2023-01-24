@@ -1,9 +1,9 @@
 import styles from './titulo.module.css'
 
-function Titulo ({texto}) {
+function Titulo ({children}) {
     return(
         <div className={styles.titulo}>
-            <h1>{texto}</h1>
+            <h1>{children}</h1>
         </div>
     )
 }
