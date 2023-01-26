@@ -10,6 +10,8 @@ const Dashboard = () => {
     const [lembretes, setLembretes] = useState([]);
 
     useEffect(() => {
+        const user = window.localStorage.getItem('user');
+
         let requestOptions = {
             method: 'GET',
         }
@@ -22,11 +24,16 @@ const Dashboard = () => {
         .catch(err => console.log(err))
     }, [])
 
+    const Deslogar = () => {
+        window.localStorage.clear();
+        window.location.href = '/';
+    }
+
     return (
         <div className={styles.dashboard}>
             <div className={styles.cabecalho}>
                 <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
-                    <div className={styles.btn_sair}><img src={iconeDesligar} alt='icone de desligar'/>Sair da conta</div>
+                    <div className={styles.btn_sair} onClick={Deslogar}><img src={iconeDesligar} alt='icone de desligar'/>Sair da conta</div>
                 </Link>
 
                 <div className={styles.containerEsquerdo}>
