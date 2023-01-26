@@ -1,16 +1,16 @@
 import styles from './criarlembrete.module.css';
 import Titulo from '../../componentes/Titulo';
 import CampoTexto from '../../componentes/CampoTexto';
-import { useState } from 'react';
-import Botao from '../../componentes/Botao';
+import { useEffect, useState } from 'react';
 import TextArea from '../../componentes/TextArea';
 import CampoData from '../../componentes/CampoData';
 import CampoHora from '../../componentes/CampoHora';
 
+
 const CriarLembrete = () => {
-    function whenTyped(e, setInput){
-        setInput(e.target.value);
-    }
+
+    const [user, setUser] = useState({});
+    useEffect(() => {setUser(JSON.parse(window.localStorage.getItem('user')))}, [] );
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
@@ -19,14 +19,15 @@ const CriarLembrete = () => {
     
     const whenSubmit = (e) => {
         e.preventDefault();
-        let idUsuario = localStorage.getItem("id")
 
         let formData = new FormData();
-        formData.append("idUsuario", idUsuario);
+        formData.append("idUsuario", user.id);
         formData.append("nome", nome);
         formData.append("descricao", descricao);
         formData.append("dt_lembrete", data);
         formData.append("hr_lembrete", hora);
+
+        console.log(nome);
 
         let requestOptions = {
             method: 'POST',
@@ -44,6 +45,7 @@ const CriarLembrete = () => {
     // const date = new Date()
     // let dataAtual = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;   
     return (
+
         <div className={styles.criarlembrete}>
             <Titulo>Crie seu lembrete aqui!!</Titulo>
 

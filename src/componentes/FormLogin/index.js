@@ -25,10 +25,10 @@ const FormLogin = ({submit}) => {
         fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
         .then(result => result.json())
         .then(data => {
-            console.log(data.result);
+            console.log(data);
             
             if(data.result){
-                window.localStorage.setItem('user', data.result)
+                window.localStorage.setItem('user', JSON.stringify(data.result))
                 window.location.href = '/dashboard';
             }else{
                 console.log(data.error);

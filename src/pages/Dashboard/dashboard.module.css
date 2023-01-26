@@ -42,3 +42,11 @@
     height: max-content;
     align-items: top;
 }
+
+.mensagemBemVindo{
+    margin-top: 10rem;
+    text-align: center;
+    font-size: 30px;
+    color: #2d3869;
+    font-weight: bold;
+}
