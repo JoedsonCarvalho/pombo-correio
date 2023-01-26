@@ -48,6 +48,7 @@ const FormLogin = ({submit}) => {
             />
             <CampoTexto 
             placeholder="Insira sua senha:" 
+            tipo="password"
             required={true} 
             value={senha}
             onChange={value => setSenha(value)}

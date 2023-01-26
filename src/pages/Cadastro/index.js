@@ -78,13 +78,15 @@ const Cadastro = () => {
 
                     <CampoTexto 
                     placeholder="Insira sua senha:"
-                    value={senha} 
+                    value={senha}
+                    tipo="password" 
                     onChange={value => setSenha(value)} 
                     />
 
                     <CampoTexto 
                     placeholder="Insira sua senha:"
-                    value={segundasenha} 
+                    value={segundasenha}
+                    tipo="password" 
                     onChange={value => setSegundaSenha(value)} 
                     />
 
