@@ -41,8 +41,15 @@ const Cadastro = () => {
         fetch('http://localhost:5226/pombocorreio/cadastro', requestOptions)
         .then(result => result.json())
         .then(data => {
-            console.log(data);
-            console.log(data.status);
+            console.log(data.result);
+
+            if(data.result){
+                window.location.href = "/";
+                
+            }else{
+                alert("Você não foi cadastrado, tente novamente.");
+            }
+            
         })
         .catch(err => console.log(err))
 

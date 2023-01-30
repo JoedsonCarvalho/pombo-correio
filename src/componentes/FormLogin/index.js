@@ -31,7 +31,8 @@ const FormLogin = ({submit}) => {
                 window.localStorage.setItem('user', JSON.stringify(data.result))
                 window.location.href = '/dashboard';
             }else{
-                console.log(data.error);
+                console.log(data);
+                alert("Login falhou, tente novamente.")
             }
         })
         .catch(err => console.log(err))
