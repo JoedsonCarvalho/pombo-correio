@@ -7,7 +7,6 @@ import CampoData from '../../componentes/CampoData';
 import CampoHora from '../../componentes/CampoHora';
 
 const CriarLembrete = () => {
-    
     const [user, setUser] = useState({});
     useEffect(() => {setUser(JSON.parse(window.localStorage.getItem('user')))}, [] );
 
