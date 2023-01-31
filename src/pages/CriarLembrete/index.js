@@ -27,8 +27,6 @@ const CriarLembrete = () => {
         formData.append("dt_lembrete", data);
         formData.append("hr_lembrete", hora);
 
-        console.log(nome);
-
         let requestOptions = {
             method: 'POST',
             body: formData
@@ -37,9 +35,17 @@ const CriarLembrete = () => {
         fetch("http://localhost:5226/lembrete/createlembrete", requestOptions)
         .then(result => result.json())
         .then(data => {
-            console.log(data);
+            if (data){
+                alert("Lembrete criado com sucesso!")
+                window.location.href = '/dashboard'
+            }else{
+                alert("Não foi possível criar o lembrete, tente novamente.")
+            }
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err);
+            alert("Não foi possível criar o lembrete, tente novamente.");
+        })
     }
 
     // const date = new Date()

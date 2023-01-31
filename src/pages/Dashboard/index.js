@@ -30,6 +30,29 @@ const Dashboard = () => {
         window.location.href = '/';
     }
 
+    const DeletaLembrete = (id) => {
+        console.log(id);
+
+        let requestOptions = {
+            method: 'DELETE',
+        }
+
+        fetch(`http://localhost:5226/lembrete/deletelembrete/${id}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.result)
+            if(data.result){
+                alert(`Lembrete '${data.result.nome}' apagado com sucesso!`);
+                window.location.reload();
+            }else{
+                alert("Não foi possível apagar lembrete.");
+            }
+        })
+        .catch(err => {
+            alert("Não foi possível apagar lembrete.");
+        })
+    }
+
     return (
         <div className={styles.dashboard}>
             <div className={styles.cabecalho}>
@@ -50,7 +73,7 @@ const Dashboard = () => {
             
 
             <section className={styles.cards} >
-                    { lembretes.length ? lembretes.map(l => <Card key={l.id} nome={l.nome} descricao={l.descricao} />) : <h1 style={{marginTop: '10px', color: '#2d3869'}}>Adicione um lembrete</h1>}
+                    { lembretes.length ? lembretes.map(l => <Card key={l.id} nome={l.nome} descricao={l.descricao} click={() => DeletaLembrete(l.id)}/>) : <h1 style={{marginTop: '10px', color: '#2d3869'}}>Adicione um lembrete</h1>}
             </section>
         </div>
     )
