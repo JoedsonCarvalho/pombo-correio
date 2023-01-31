@@ -16,11 +16,11 @@ const Dashboard = () => {
         let requestOptions = {
             method: 'GET',
         }
-
-        fetch("https://my-json-server.typicode.com/JoedsonCarvalho/mock-api-lembretes/lembretes", requestOptions)
+        let idUsuario = JSON.parse(window.localStorage.getItem('user')).id;
+        fetch(`http://localhost:5226/lembrete/lembreteporusuario/${idUsuario}`, requestOptions)
         .then(result => result.json())
         .then(data => {
-            setLembretes(data);
+            setLembretes(data.result);
         })
         .catch(err => console.log(err))
     }, [])
@@ -50,7 +50,7 @@ const Dashboard = () => {
             
 
             <section className={styles.cards} >
-                    {lembretes.map(l => <Card key={l.id} nome={l.nome} descricao={l.descricao} />)}
+                    { lembretes.length ? lembretes.map(l => <Card key={l.id} nome={l.nome} descricao={l.descricao} />) : <h1 style={{marginTop: '10px', color: '#2d3869'}}>Adicione um lembrete</h1>}
             </section>
         </div>
     )
