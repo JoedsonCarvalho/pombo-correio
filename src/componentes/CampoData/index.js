@@ -1,5 +1,3 @@
-
-
 const CampoData = ({value, onChange}) => {
     const whenTyped = (e) => {
         onChange(e.target.value);

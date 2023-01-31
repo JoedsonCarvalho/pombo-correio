@@ -19,7 +19,6 @@ root.render(
           <Route path="/dashboard" element={<Dashboard />} ></Route>
           <Route path="dashboard/criar-lembrete" element={<CriarLembrete />} ></Route>
       </Routes>
-      
     </BrowserRouter>
   </React.StrictMode>
 );

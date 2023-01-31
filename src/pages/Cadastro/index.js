@@ -17,13 +17,6 @@ const Cadastro = () => {
 
     function HandleSubmit(e) {
         e.preventDefault();
-        console.log(e.target);
-        console.log(nome);
-        console.log(sobrenome);
-        console.log(email);
-        console.log(apelido);
-        console.log(senha);
-        console.log(segundasenha);
 
         let formData = new FormData();
         formData.append('nome', nome);
@@ -31,7 +24,6 @@ const Cadastro = () => {
         formData.append('email', email);
         formData.append('apelido', apelido);
         formData.append('senha', senha);
-
 
         let requestOptions = {
             method: 'POST',
@@ -41,8 +33,6 @@ const Cadastro = () => {
         fetch('http://localhost:5226/pombocorreio/cadastro', requestOptions)
         .then(result => result.json())
         .then(data => {
-            console.log(data);
-
             if(data){
                 window.location.href = "/";
                 

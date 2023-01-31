@@ -31,8 +31,6 @@ const Dashboard = () => {
     }
 
     const DeletaLembrete = (id) => {
-        console.log(id);
-
         let requestOptions = {
             method: 'DELETE',
         }
@@ -40,7 +38,6 @@ const Dashboard = () => {
         fetch(`http://localhost:5226/lembrete/deletelembrete/${id}`, requestOptions)
         .then(response => response.json())
         .then(data => {
-            console.log(data.result)
             if(data.result){
                 alert(`Lembrete '${data.result.nome}' apagado com sucesso!`);
                 window.location.reload();

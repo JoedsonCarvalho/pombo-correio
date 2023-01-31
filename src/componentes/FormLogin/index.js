@@ -10,8 +10,6 @@ const FormLogin = ({submit}) => {
 
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(senha);
 
         let formData = new FormData();
         formData.append('email', email);
@@ -25,13 +23,10 @@ const FormLogin = ({submit}) => {
         fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
         .then(result => result.json())
         .then(data => {
-            console.log("data",data);
-            
             if(data.result){
                 window.localStorage.setItem('user', JSON.stringify(data.result))
                 window.location.href = '/dashboard';
             }else{
-                console.log(data);
                 alert("Login falhou, tente novamente.");
             }
         })
