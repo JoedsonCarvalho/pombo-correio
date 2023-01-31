@@ -54,22 +54,26 @@ const Cadastro = () => {
                     <CampoTexto 
                     placeholder="Insira seu primeiro nome:" 
                     value={nome} 
+                    required={true}
                     onChange={value => setNome(value)} 
                     />
                     <CampoTexto 
                     placeholder="Insira seu sobrenome:"
                     value={sobrenome} 
+                    required={true}
                     onChange={value => setSobrenome(value)} 
                     />
 
                     <CampoTexto 
                     placeholder="Insira seu email:"
                     value={email} 
+                    required={true}
                     onChange={value => setEmail(value)} 
                     />
                     <CampoTexto 
                     placeholder="Coloque aqui como você deseja ser chamado:"
                     value={apelido} 
+                    required={false}
                     onChange={value => setApelido(value)} 
                     />
 
@@ -77,6 +81,7 @@ const Cadastro = () => {
                     placeholder="Insira sua senha:"
                     value={senha}
                     tipo="password" 
+                    required={true}
                     onChange={value => setSenha(value)} 
                     />
 
@@ -84,6 +89,7 @@ const Cadastro = () => {
                     placeholder="Insira sua senha:"
                     value={segundasenha}
                     tipo="password" 
+                    required={true}
                     onChange={value => setSegundaSenha(value)} 
                     />
 

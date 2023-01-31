@@ -66,6 +66,7 @@ const CriarLembrete = () => {
                     <TextArea 
                     rows="5"
                     placeholder="Insira a descrição de seu lembrete"
+                    required={true}
                     value={descricao} 
                     onChange={value => setDescricao(value)}
                     />
@@ -74,6 +75,7 @@ const CriarLembrete = () => {
 
                     <CampoData
                     value={data}
+                    required={true}
                     onChange={value => setData(value)}
                     />
 
