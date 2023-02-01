@@ -4,6 +4,7 @@ const CampoTexto = ({placeholder, required, value, onChange, tipo}) => {
     const whenTyped = (e) => {
         onChange(e.target.value);
     }
+
     return (
         <div className={styles.campotexto}>
             <input

@@ -3,14 +3,20 @@ import CampoTexto from '../CampoTexto';
 import Botao from '../Botao';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import validator from 'validator'
 
 const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
+    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)]/;
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
 
+        if (email.match(re) || validator.isEmail(email)){
+            alert("Email inválido!, tente novamente.");
+            return;
+        }
         let formData = new FormData();
         formData.append('email', email);
         formData.append('senha', senha);
@@ -37,6 +43,14 @@ const FormLogin = ({submit}) => {
 
     }
 
+    // let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)]/;
+    // const aoDigitar = (e) => {
+    //     console.log(e.key);
+    //     if(email.match(re)){
+    //         console.log(e.key);
+    //     }
+    // }
+
     return (
         <form className={styles.form} onSubmit={HandleSubmitLogin}>
             <CampoTexto
@@ -47,7 +61,7 @@ const FormLogin = ({submit}) => {
             />
             <CampoTexto 
             placeholder="Insira sua senha:" 
-            tipo    ="password"
+            tipo="password"
             required={true} 
             value={senha}
             onChange={value => setSenha(value)}
