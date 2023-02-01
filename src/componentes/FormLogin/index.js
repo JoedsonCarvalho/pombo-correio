@@ -9,7 +9,7 @@ const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)]/;
+    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)\\]/;
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
 
@@ -42,14 +42,6 @@ const FormLogin = ({submit}) => {
         })
 
     }
-
-    // let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)]/;
-    // const aoDigitar = (e) => {
-    //     console.log(e.key);
-    //     if(email.match(re)){
-    //         console.log(e.key);
-    //     }
-    // }
 
     return (
         <form className={styles.form} onSubmit={HandleSubmitLogin}>
