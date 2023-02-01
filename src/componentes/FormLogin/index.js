@@ -9,7 +9,7 @@ const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)]/;
+    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)\\]/;
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
 
