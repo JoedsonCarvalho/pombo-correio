@@ -1,6 +1,6 @@
 import styles from './campotexto.module.css';
 
-const CampoTexto = ({placeholder, required, value, onChange, tipo}) => {
+const CampoTexto = ({placeholder, required, value, onChange, tipo, minLength}) => {
     const whenTyped = (e) => {
         onChange(e.target.value);
     }
@@ -13,6 +13,7 @@ const CampoTexto = ({placeholder, required, value, onChange, tipo}) => {
                 type={tipo}
                 required={required}
                 value={value}
+                minLength={minLength}
                 onChange={whenTyped}
             />
         </div>

@@ -9,11 +9,11 @@ const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    let re = /[-!\[\]{}´`~\^:;,\/'"ªº§=\+\|\\#\$%¨&\*\(\)\\]/;
+    let re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
 
-        if (email.match(re) || validator.isEmail(email)){
+        if (!email.match(re)){
             alert("Email inválido!, tente novamente.");
             return;
         }
@@ -37,7 +37,6 @@ const FormLogin = ({submit}) => {
             }
         })
         .catch(err => {
-            console.log("err",err);
             alert("Login falhou, tente novamente.");
         })
 

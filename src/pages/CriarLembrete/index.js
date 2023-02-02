@@ -8,14 +8,18 @@ import CampoHora from '../../componentes/CampoHora';
 
 const CriarLembrete = () => {
     const [user, setUser] = useState({});
-    useEffect(() => {setUser(JSON.parse(window.localStorage.getItem('user')))}, [] );
+    useEffect(() => {
+        setUser(JSON.parse(window.localStorage.getItem('user')))
+        if(!JSON.parse(window.localStorage.getItem('user'))){
+            window.location.href = "/";
+            return
+        }
+    }, [] );
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [data, setData] = useState('');
     const [hora, setHora] = useState('');
-
-    //teste
 
     const whenSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +47,6 @@ const CriarLembrete = () => {
             }
         })
         .catch(err => {
-            console.log(err);
             alert("Não foi possível criar o lembrete, tente novamente.");
         })
     }
@@ -83,6 +86,7 @@ const CriarLembrete = () => {
 
                     <CampoHora 
                     value={hora}
+                    required={true}
                     onChange={value => setHora(value)}
                     />
 

@@ -25,6 +25,18 @@ const Cadastro = () => {
         formData.append('apelido', apelido);
         formData.append('senha', senha);
 
+        let re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+        if (!email.match(re)){
+            alert("Email inválido!, tente novamente.");
+            return;
+        }
+
+        if (senha !== segundasenha){
+            alert("As senhas devem ser iguais para efetuar o cadastro!");
+            return
+        }
+
         let requestOptions = {
             method: 'POST',
             body: formData
@@ -35,13 +47,17 @@ const Cadastro = () => {
         .then(data => {
             if(data){
                 window.location.href = "/";
-                
             }else{
                 alert("Você não foi cadastrado, tente novamente.");
             }
             
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            err = `${err}`;
+            let msgErr = err.split('"');
+            if (msgErr[1] === "Email já cadastrado"){alert("Email já cadastrado no sistema.") }
+        })
+        
 
     }
 
@@ -73,7 +89,7 @@ const Cadastro = () => {
                     <CampoTexto 
                     placeholder="Coloque aqui como você deseja ser chamado:"
                     value={apelido} 
-                    required={false}
+                    required={true}
                     onChange={value => setApelido(value)} 
                     />
 
@@ -82,6 +98,7 @@ const Cadastro = () => {
                     value={senha}
                     tipo="password" 
                     required={true}
+                    minLength="6"
                     onChange={value => setSenha(value)} 
                     />
 
@@ -90,6 +107,7 @@ const Cadastro = () => {
                     value={segundasenha}
                     tipo="password" 
                     required={true}
+                    minLength="6"
                     onChange={value => setSegundaSenha(value)} 
                     />
 

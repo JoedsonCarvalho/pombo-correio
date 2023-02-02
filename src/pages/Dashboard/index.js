@@ -12,7 +12,11 @@ const Dashboard = () => {
 
     useEffect(() => {
         setUser(JSON.parse(window.localStorage.getItem('user')));
-
+        if(!JSON.parse(window.localStorage.getItem('user'))){
+            window.location.href = "/";
+            return
+        }
+        
         let requestOptions = {
             method: 'GET',
         }
