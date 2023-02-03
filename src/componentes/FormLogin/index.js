@@ -3,7 +3,24 @@ import CampoTexto from '../CampoTexto';
 import Botao from '../Botao';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import validator from 'validator'
+
+const usuarioExiste = (email) => {
+    let formData = new FormData();
+    formData.append("Email", email);
+
+    let requestOptions = {
+        method: 'POST',
+        body: formData 
+    } 
+    
+    fetch("http://localhost:5226/pombocorreio/usuariobyemail", requestOptions)
+    .then(result => result.json())
+    .then(data => {
+        console.log(data.result);
+        return data.result;
+    }) 
+    .catch(err => console.log(err))
+}
 
 const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
@@ -25,7 +42,11 @@ const FormLogin = ({submit}) => {
             method: 'POST',
             body: formData
         }
+        let usuarioExiste = usuarioExiste(email);
 
+        if(usuarioExiste){
+
+        }
         fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
         .then(result => result.json())
         .then(data => {
