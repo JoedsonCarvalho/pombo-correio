@@ -44,8 +44,9 @@ const FormLogin = ({submit}) => {
         }
         let usuarioExiste = usuarioExiste(email);
 
-        if(usuarioExiste){
-
+        if(!usuarioExiste){
+            alert("Usuário foi não cadastrado!")
+            return;
         }
         fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
         .then(result => result.json())
