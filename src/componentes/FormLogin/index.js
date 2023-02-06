@@ -4,31 +4,42 @@ import Botao from '../Botao';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-const usuarioExiste = (email) => {
-    let formData = new FormData();
-    formData.append("Email", email);
 
-    let requestOptions = {
-        method: 'POST',
-        body: formData 
-    } 
-    
-    fetch("http://localhost:5226/pombocorreio/usuariobyemail", requestOptions)
-    .then(result => result.json())
-    .then(data => {
-        console.log(data.result);
-        return data.result;
-    }) 
-    .catch(err => console.log(err))
-}
 
 const FormLogin = ({submit}) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [response, setResponse] = useState({});
 
     let re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const HandleSubmitLogin = (e) => {
         e.preventDefault();
+
+        function usuarioExiste(email){
+            let formData = new FormData();
+            formData.append("Email", email);
+        
+            let requestOptions = {
+                method: 'POST',
+                body: formData,
+            } 
+            
+            fetch("http://localhost:5226/pombocorreio/usuariobyemail", requestOptions)
+            .then(result => result.json())
+            .then(data => data)
+            .then(res => {
+                setResponse(res.result);
+            })
+            .catch(err => {
+                console.log("error",err)
+                if(err){
+                    alert("Usuário não foi cadastrado!");
+                    return;
+                }
+            })
+           
+            return response;
+        }
 
         if (!email.match(re)){
             alert("Email inválido!, tente novamente.");
@@ -42,12 +53,8 @@ const FormLogin = ({submit}) => {
             method: 'POST',
             body: formData
         }
-        let usuarioExiste = usuarioExiste(email);
-
-        if(!usuarioExiste){
-            alert("Usuário foi não cadastrado!")
-            return;
-        }
+        usuarioExiste(email);
+     
         fetch('http://localhost:5226/pombocorreio/logar', requestOptions)
         .then(result => result.json())
         .then(data => {
